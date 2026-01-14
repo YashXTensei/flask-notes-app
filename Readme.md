@@ -43,4 +43,4 @@ while learning Flask.
 ```bash
 git clone https://github.com/YashXTensei/flask-notes-app.git
 cd flask-notes-app
-python Mini_Project.py
+python app.py
