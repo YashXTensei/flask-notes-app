@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %} Edit {% endblock %}
+{% block content %}
+
+<p> Your previous title : {{notes[1]}}</p>
+<p> Your previous Text : {{notes[2]}}</p>
+<br>
+<form method = "POST" action = "{{url_for('editf' , id = notes[0])}}">
+    <label> Title : </label>
+    <textarea name = "new_title" rows = 1 cols = 40 placeholder = "Title"></textarea>
+    <br>
+    <label> Text : </label>
+    <br>
+    <textarea name = "new_text" rows = 5 cols = 40 placeholder = "Text"></textarea>
+    <button> Done✏️</button>
+</form>
+
+{% endblock %}

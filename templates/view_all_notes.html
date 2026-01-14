@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %} View_All_Notes {% endblock %}
+{% block content %}
+
+{% if all == True %}
+
+<h1> Your all Notes : </h1>
+<br>
+{% for i in notes %}
+
+<p> <b> {{i[0]}} : </b></p>
+<br>
+<p> <u> Title</u> <b>: {{i[1]}} </b></p>
+<br>
+{% if i[2] | length > 200 %}
+<p> {{i[2][0:200]}} ...</p>
+{% else %}
+<p> {{i[2][0:200]}}</p>
+{% endif %}
+<br>
+<div class = "links">
+<a href = "{{url_for('edit' , id = i[0])}}"> Edit ✏️ </a>
+<a href="{{ url_for('deletef', id=i[0]) }}"
+   onclick="return confirm('Are you sure you want to delete this note?')">
+   Delete ☠️
+</a>
+
+<a href = "{{url_for('view' , id = i[0])}}" > Expand ↗️</a>
+</div>
+<div class = "time"> <p> Time : {{i[3]}} </p></div>
+
+<hr>
+<br>
+
+{% endfor %}
+
+{% else %}
+
+<p><b>{{notes[0]}} : </b> </p>
+<br>
+<p><b>Title : {{notes[1]}}</b></p>
+<br>
+<p><b> Notes : </b></p>
+<br> 
+<p> {{notes[2]}}</p>
+<br>
+<div class = "links">
+<a href = "{{url_for('edit' , id = notes[0])}}"> Edit ✏️ </a>
+<a href = "{{url_for('deletef' , id = notes[0])}}" onclick="return confirm('Are you sure you want to delete this note?')"> Delete ☠️</a>
+</div>
+<br>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %} Add_Notes {% endblock %}
+{% block content %}
+
+<form method = "POST" action = "{{url_for('adding')}}">
+    <b> Title :</b>
+    <br>
+    <textarea name = "title" rows = 1 columns = 40 
+    placeholder = "title"></textarea>
+    <br>
+    <b> Content :  </b> 
+    <br>
+    <textarea name = "text" rows = 1 columns = 40 placeholder = "text"></textarea>
+    <br>
+    <button> Add ➕ </button>
+</form>
+
+{% endblock %}
